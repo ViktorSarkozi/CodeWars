@@ -4,87 +4,23 @@ namespace CodeWars.GildedRose
 {
     public class GildedRose_Solution
     {
-        private readonly IList<Item> Items;
+        private readonly IList<Item> _items;
+        private readonly IItemUpdateFactory _itemUpdateFactory;
 
-        public GildedRose_Solution(IList<Item> Items)
+        public GildedRose_Solution(
+            IList<Item> items,
+            IItemUpdateFactory itemUpdateFactory)
         {
-            this.Items = Items;
+            _items = items;
+            _itemUpdateFactory = itemUpdateFactory;
         }
 
         public void UpdateQuality()
         {
-            for (var i = 0; i < Items.Count; i++)
+            foreach (var item in _items)
             {
-                if (Items[i].Name != ItemName.AgedBrie &&
-                    Items[i].Name != ItemName.Backstage)
-                {
-                    if (Items[i].Quality > 0)
-                    {
-                        if (Items[i].Name != ItemName.Sulfuras)
-                        {
-                            Items[i].Quality = Items[i].Quality - 1;
-                        }
-                    }
-                }
-                else
-                {
-                    if (Items[i].Quality < 50)
-                    {
-                        Items[i].Quality = Items[i].Quality + 1;
-
-                        if (Items[i].Name == ItemName.Backstage)
-                        {
-                            if (Items[i].SellIn < 11)
-                            {
-                                if (Items[i].Quality < 50)
-                                {
-                                    Items[i].Quality = Items[i].Quality + 1;
-                                }
-                            }
-
-                            if (Items[i].SellIn < 6)
-                            {
-                                if (Items[i].Quality < 50)
-                                {
-                                    Items[i].Quality = Items[i].Quality + 1;
-                                }
-                            }
-                        }
-                    }
-                }
-
-                if (Items[i].Name != ItemName.Sulfuras)
-                {
-                    Items[i].SellIn = Items[i].SellIn - 1;
-                }
-
-                if (Items[i].SellIn < 0)
-                {
-                    if (Items[i].Name != ItemName.AgedBrie)
-                    {
-                        if (Items[i].Name != ItemName.Backstage)
-                        {
-                            if (Items[i].Quality > 0)
-                            {
-                                if (Items[i].Name != ItemName.Sulfuras)
-                                {
-                                    Items[i].Quality = Items[i].Quality - 1;
-                                }
-                            }
-                        }
-                        else
-                        {
-                            Items[i].Quality = Items[i].Quality - Items[i].Quality;
-                        }
-                    }
-                    else
-                    {
-                        if (Items[i].Quality < 50)
-                        {
-                            Items[i].Quality = Items[i].Quality + 1;
-                        }
-                    }
-                }
+                var itemUpdateService = _itemUpdateFactory.Create(item);
+                itemUpdateService.Update(item);
             }
         }
     }

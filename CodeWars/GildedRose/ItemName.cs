@@ -2,7 +2,7 @@
 {
     public static class ItemName
     {
-        public const string AgedBrie = "AgedBrie";
+        public const string AgedBrie = "Aged Brie";
 
         public const string Sulfuras = "Sulfuras, Hand of Ragnaros";
 

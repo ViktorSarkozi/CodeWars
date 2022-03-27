@@ -7,6 +7,20 @@ namespace CodeWars.UnitTest
 {
     public class GildedRoseTests
     {
+        private readonly ItemUpdateFactory _itemUpdateFactory;
+
+        public GildedRoseTests()
+        {
+            var itemUpdateService = new List<IItemUpdateService>
+            {
+                new AgedItemUpdateService(),
+                new BackstageItemUpdateService(),
+                new LegendaryItemUpdateService(),
+                new DefaultItemUpdateService(),
+            };
+            _itemUpdateFactory = new ItemUpdateFactory(itemUpdateService);
+        }
+
         [Fact]
         public void WhenAgedBrieGetsUpdated_QualityIncrease()
         {
@@ -15,7 +29,7 @@ namespace CodeWars.UnitTest
             {
                 new() { Name = ItemName.AgedBrie, SellIn = 2, Quality = 0 },
             };
-            var gildedRoseApp = new GildedRose_Solution(inputItems);
+            var gildedRoseApp = new GildedRose_Solution(inputItems, _itemUpdateFactory);
             
             // Act
             gildedRoseApp.UpdateQuality();
@@ -33,7 +47,7 @@ namespace CodeWars.UnitTest
             {
                 new() { Name = ItemName.AgedBrie, SellIn = 2, Quality = 50 },
             };
-            var gildedRoseApp = new GildedRose_Solution(inputItems);
+            var gildedRoseApp = new GildedRose_Solution(inputItems, _itemUpdateFactory);
             
             // Act
             gildedRoseApp.UpdateQuality();
@@ -51,7 +65,7 @@ namespace CodeWars.UnitTest
             {
                 new() { Name = ItemName.AgedBrie, SellIn = 0, Quality = 10 },
             };
-            var gildedRoseApp = new GildedRose_Solution(inputItems);
+            var gildedRoseApp = new GildedRose_Solution(inputItems, _itemUpdateFactory);
             
             // Act
             gildedRoseApp.UpdateQuality();
@@ -72,7 +86,7 @@ namespace CodeWars.UnitTest
             {
                 new() { Name = dexterityVest, SellIn = 0, Quality = 6 },
             };
-            var gildedRoseApp = new GildedRose_Solution(inputItems);
+            var gildedRoseApp = new GildedRose_Solution(inputItems, _itemUpdateFactory);
             
             // Act
             gildedRoseApp.UpdateQuality();
@@ -91,7 +105,7 @@ namespace CodeWars.UnitTest
             {
                 new() { Name = dexterityVest, SellIn = 5, Quality = 6 },
             };
-            var gildedRoseApp = new GildedRose_Solution(inputItems);
+            var gildedRoseApp = new GildedRose_Solution(inputItems, _itemUpdateFactory);
             
             // Act
             gildedRoseApp.UpdateQuality();
@@ -109,7 +123,7 @@ namespace CodeWars.UnitTest
             {
                 new() { Name = ItemName.Sulfuras, SellIn = 10, Quality = 10 },
             };
-            var gildedRoseApp = new GildedRose_Solution(inputItems);
+            var gildedRoseApp = new GildedRose_Solution(inputItems, _itemUpdateFactory);
             
             // Act
             gildedRoseApp.UpdateQuality();
@@ -127,7 +141,7 @@ namespace CodeWars.UnitTest
             {
                 new() { Name = ItemName.Backstage, SellIn = 14, Quality = 10 },
             };
-            var gildedRoseApp = new GildedRose_Solution(inputItems);
+            var gildedRoseApp = new GildedRose_Solution(inputItems, _itemUpdateFactory);
             
             // Act
             gildedRoseApp.UpdateQuality();
@@ -145,7 +159,7 @@ namespace CodeWars.UnitTest
             {
                 new() { Name = ItemName.Backstage, SellIn = 7, Quality = 10 },
             };
-            var gildedRoseApp = new GildedRose_Solution(inputItems);
+            var gildedRoseApp = new GildedRose_Solution(inputItems, _itemUpdateFactory);
             
             // Act
             gildedRoseApp.UpdateQuality();
@@ -163,7 +177,7 @@ namespace CodeWars.UnitTest
             {
                 new() { Name = ItemName.Backstage, SellIn = 4, Quality = 10 },
             };
-            var gildedRoseApp = new GildedRose_Solution(inputItems);
+            var gildedRoseApp = new GildedRose_Solution(inputItems, _itemUpdateFactory);
             
             // Act
             gildedRoseApp.UpdateQuality();
@@ -181,7 +195,7 @@ namespace CodeWars.UnitTest
             {
                 new() { Name = ItemName.Backstage, SellIn = 0, Quality = 10 },
             };
-            var gildedRoseApp = new GildedRose_Solution(inputItems);
+            var gildedRoseApp = new GildedRose_Solution(inputItems, _itemUpdateFactory);
             
             // Act
             gildedRoseApp.UpdateQuality();
