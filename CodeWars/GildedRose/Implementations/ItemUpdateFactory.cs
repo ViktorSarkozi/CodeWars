@@ -25,6 +25,8 @@ namespace CodeWars.GildedRose
                     return _itemUpdateServices.OfType<BackstageItemUpdateService>().FirstOrDefault();
                 case ItemName.Sulfuras:
                     return _itemUpdateServices.OfType<LegendaryItemUpdateService>().FirstOrDefault();
+                case ItemName.Conjured:
+                    return _itemUpdateServices.OfType<ConjuredItemUpdateService>().FirstOrDefault();
                 default:
                     return _itemUpdateServices.OfType<DefaultItemUpdateService>().FirstOrDefault();
             }

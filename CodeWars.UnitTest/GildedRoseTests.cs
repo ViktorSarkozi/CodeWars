@@ -17,6 +17,7 @@ namespace CodeWars.UnitTest
                 new AgedItemUpdateService(),
                 new BackstageItemUpdateService(),
                 new LegendaryItemUpdateService(),
+                new ConjuredItemUpdateService(),
                 new DefaultItemUpdateService(),
             };
             _itemUpdateFactory = new ItemUpdateFactory(itemUpdateService);
@@ -59,7 +60,7 @@ namespace CodeWars.UnitTest
         }
 
         [Fact]
-        public void WhenAgedBrieSellInLessThan0_QualityIncreaseTwiceAsFast()
+        public void WhenAgedBrieSellInLessThan0GetsUpdated_QualityIncreaseTwiceAsFast()
         {
             // Arrange
             var inputItems = new List<Item>
@@ -151,7 +152,7 @@ namespace CodeWars.UnitTest
         }
         
         [Fact]
-        public void WhenBackstageWith10PlusSellInGetUpdated_SellIndDecreaseAndQualityDecreaseNormally()
+        public void WhenBackstageWith10PlusSellInGetsUpdated_SellIndDecreaseAndQualityDecreaseNormally()
         {
             // Arrange
             var inputItems = new List<Item>
@@ -169,7 +170,7 @@ namespace CodeWars.UnitTest
         }
         
         [Fact]
-        public void WhenBackstageWithBetween5and10SellInGetUpdated_SellIndDecreaseAndQualityDecreaseTwiceAsFast()
+        public void WhenBackstageWithBetween5and10SellInGetsUpdated_SellIndDecreaseAndQualityDecreaseTwiceAsFast()
         {
             // Arrange
             var inputItems = new List<Item>
@@ -187,7 +188,7 @@ namespace CodeWars.UnitTest
         }
         
         [Fact]
-        public void WhenBackstageWithLessThan5SellInGetUpdated_SellIndDecreaseAndQualityDecreaseThreeTimesAsFast()
+        public void WhenBackstageWithLessThan5SellInGetsUpdated_SellIndDecreaseAndQualityDecreaseThreeTimesAsFast()
         {
             // Arrange
             var inputItems = new List<Item>
@@ -205,7 +206,7 @@ namespace CodeWars.UnitTest
         }
         
         [Fact]
-        public void WhenBackstageWithLessThan0SellInGetUpdated_SellIndDecreaseAndQualityDropsTo0()
+        public void WhenBackstageWithLessThan0SellInGetsUpdated_SellIndDecreaseAndQualityDropsTo0()
         {
             // Arrange
             var inputItems = new List<Item>
@@ -219,6 +220,24 @@ namespace CodeWars.UnitTest
 
             // Assert
             var expected = new Item { Name = ItemName.Backstage, SellIn = -1, Quality = 0 };
+            inputItems[0].Should().BeEquivalentTo(expected);
+        }
+
+        [Fact]
+        public void WhenConjuredGetsUpdated_QualityDecreaseTwiceAsFast()
+        {
+            // Arrange
+            var inputItems = new List<Item>
+            {
+                new() { Name = ItemName.Conjured, SellIn = 4, Quality = 10 },
+            };
+            var gildedRoseApp = new GildedRose_Solution(inputItems, _itemUpdateFactory);
+            
+            // Act
+            gildedRoseApp.UpdateQuality();
+
+            // Assert
+            var expected = new Item { Name = ItemName.Conjured, SellIn = 3, Quality = 8 };
             inputItems[0].Should().BeEquivalentTo(expected);
         }
     }
