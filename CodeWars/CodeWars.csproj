@@ -9,4 +9,8 @@
       <PackageReference Include="Dawn.Guard" Version="1.12.0" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="GildedRose\Solution2" />
+    </ItemGroup>
+
 </Project>

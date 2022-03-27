@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 
-namespace CodeWars.GildedRose
+namespace CodeWars.GildedRose.Solution1
 {
     [ExcludeFromCodeCoverage]
     public class GildedRose_Start

@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
 
-namespace CodeWars.GildedRose
+namespace CodeWars.GildedRose.Solution1
 {
-    public class GildedRose_Solution
+    public class GildedRose_Solution1
     {
         private readonly IList<Item> _items;
         private readonly IItemUpdateFactory _itemUpdateFactory;
 
-        public GildedRose_Solution(
+        public GildedRose_Solution1(
             IList<Item> items,
             IItemUpdateFactory itemUpdateFactory)
         {

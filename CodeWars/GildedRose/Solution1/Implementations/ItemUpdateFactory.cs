@@ -2,7 +2,7 @@
 using System.Linq;
 using Dawn;
 
-namespace CodeWars.GildedRose
+namespace CodeWars.GildedRose.Solution1
 {
     public class ItemUpdateFactory : IItemUpdateFactory
     {

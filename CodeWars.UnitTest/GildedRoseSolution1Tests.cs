@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using CodeWars.GildedRose.Solution1;
 using CodeWars.GildedRose;
 using FluentAssertions;
 using Xunit;
@@ -31,7 +32,7 @@ namespace CodeWars.UnitTest
             {
                 new() { Name = ItemName.AgedBrie, SellIn = 2, Quality = 0 },
             };
-            var gildedRoseApp = new GildedRose_Solution(inputItems, _itemUpdateFactory);
+            var gildedRoseApp = new GildedRose_Solution1(inputItems, _itemUpdateFactory);
             
             // Act
             gildedRoseApp.UpdateQuality();
@@ -49,7 +50,7 @@ namespace CodeWars.UnitTest
             {
                 new() { Name = ItemName.AgedBrie, SellIn = 2, Quality = 50 },
             };
-            var gildedRoseApp = new GildedRose_Solution(inputItems, _itemUpdateFactory);
+            var gildedRoseApp = new GildedRose_Solution1(inputItems, _itemUpdateFactory);
             
             // Act
             gildedRoseApp.UpdateQuality();
@@ -67,7 +68,7 @@ namespace CodeWars.UnitTest
             {
                 new() { Name = ItemName.AgedBrie, SellIn = 0, Quality = 10 },
             };
-            var gildedRoseApp = new GildedRose_Solution(inputItems, _itemUpdateFactory);
+            var gildedRoseApp = new GildedRose_Solution1(inputItems, _itemUpdateFactory);
             
             // Act
             gildedRoseApp.UpdateQuality();
@@ -87,7 +88,7 @@ namespace CodeWars.UnitTest
             {
                 new() { Name = NormalItemName, SellIn = 0, Quality = 6 },
             };
-            var gildedRoseApp = new GildedRose_Solution(inputItems, _itemUpdateFactory);
+            var gildedRoseApp = new GildedRose_Solution1(inputItems, _itemUpdateFactory);
             
             // Act
             gildedRoseApp.UpdateQuality();
@@ -105,7 +106,7 @@ namespace CodeWars.UnitTest
             {
                 new() { Name = NormalItemName, SellIn = 5, Quality = 0 },
             };
-            var gildedRoseApp = new GildedRose_Solution(inputItems, _itemUpdateFactory);
+            var gildedRoseApp = new GildedRose_Solution1(inputItems, _itemUpdateFactory);
             
             // Act
             gildedRoseApp.UpdateQuality();
@@ -123,7 +124,7 @@ namespace CodeWars.UnitTest
             {
                 new() { Name = NormalItemName, SellIn = 5, Quality = 6 },
             };
-            var gildedRoseApp = new GildedRose_Solution(inputItems, _itemUpdateFactory);
+            var gildedRoseApp = new GildedRose_Solution1(inputItems, _itemUpdateFactory);
             
             // Act
             gildedRoseApp.UpdateQuality();
@@ -141,7 +142,7 @@ namespace CodeWars.UnitTest
             {
                 new() { Name = ItemName.Sulfuras, SellIn = 10, Quality = 10 },
             };
-            var gildedRoseApp = new GildedRose_Solution(inputItems, _itemUpdateFactory);
+            var gildedRoseApp = new GildedRose_Solution1(inputItems, _itemUpdateFactory);
             
             // Act
             gildedRoseApp.UpdateQuality();
@@ -159,7 +160,7 @@ namespace CodeWars.UnitTest
             {
                 new() { Name = ItemName.Backstage, SellIn = 14, Quality = 10 },
             };
-            var gildedRoseApp = new GildedRose_Solution(inputItems, _itemUpdateFactory);
+            var gildedRoseApp = new GildedRose_Solution1(inputItems, _itemUpdateFactory);
             
             // Act
             gildedRoseApp.UpdateQuality();
@@ -177,7 +178,7 @@ namespace CodeWars.UnitTest
             {
                 new() { Name = ItemName.Backstage, SellIn = 7, Quality = 10 },
             };
-            var gildedRoseApp = new GildedRose_Solution(inputItems, _itemUpdateFactory);
+            var gildedRoseApp = new GildedRose_Solution1(inputItems, _itemUpdateFactory);
             
             // Act
             gildedRoseApp.UpdateQuality();
@@ -195,7 +196,7 @@ namespace CodeWars.UnitTest
             {
                 new() { Name = ItemName.Backstage, SellIn = 4, Quality = 10 },
             };
-            var gildedRoseApp = new GildedRose_Solution(inputItems, _itemUpdateFactory);
+            var gildedRoseApp = new GildedRose_Solution1(inputItems, _itemUpdateFactory);
             
             // Act
             gildedRoseApp.UpdateQuality();
@@ -213,7 +214,7 @@ namespace CodeWars.UnitTest
             {
                 new() { Name = ItemName.Backstage, SellIn = 0, Quality = 10 },
             };
-            var gildedRoseApp = new GildedRose_Solution(inputItems, _itemUpdateFactory);
+            var gildedRoseApp = new GildedRose_Solution1(inputItems, _itemUpdateFactory);
             
             // Act
             gildedRoseApp.UpdateQuality();
@@ -231,7 +232,7 @@ namespace CodeWars.UnitTest
             {
                 new() { Name = ItemName.Conjured, SellIn = 4, Quality = 10 },
             };
-            var gildedRoseApp = new GildedRose_Solution(inputItems, _itemUpdateFactory);
+            var gildedRoseApp = new GildedRose_Solution1(inputItems, _itemUpdateFactory);
             
             // Act
             gildedRoseApp.UpdateQuality();
