@@ -7,6 +7,7 @@ namespace CodeWars.UnitTest
 {
     public class GildedRoseTests
     {
+        private const string NormalItemName = "+5 Dexterity Vest";
         private readonly ItemUpdateFactory _itemUpdateFactory;
 
         public GildedRoseTests()
@@ -81,10 +82,9 @@ namespace CodeWars.UnitTest
         public void WhenANormalItemWith0SellInGetsUpdated_QualityDecreaseTwiceAsFast()
         {
             // Arrange
-            const string dexterityVest = "+5 Dexterity Vest";
             var inputItems = new List<Item>
             {
-                new() { Name = dexterityVest, SellIn = 0, Quality = 6 },
+                new() { Name = NormalItemName, SellIn = 0, Quality = 6 },
             };
             var gildedRoseApp = new GildedRose_Solution(inputItems, _itemUpdateFactory);
             
@@ -92,18 +92,17 @@ namespace CodeWars.UnitTest
             gildedRoseApp.UpdateQuality();
 
             // Assert
-            var expected = new Item { Name = dexterityVest, SellIn = -1, Quality = 4 };
+            var expected = new Item { Name = NormalItemName, SellIn = -1, Quality = 4 };
             inputItems[0].Should().BeEquivalentTo(expected);
         }
         
         [Fact]
-        public void WhenANormalItemWithGetsUpdated_BothSellInAndQualityDecrease()
+        public void WhenANormalItemWith0QualityGetsUpdated_QualityDoesNotDecreaseAnymore()
         {
             // Arrange
-            const string dexterityVest = "+5 Dexterity Vest";
             var inputItems = new List<Item>
             {
-                new() { Name = dexterityVest, SellIn = 5, Quality = 6 },
+                new() { Name = NormalItemName, SellIn = 5, Quality = 0 },
             };
             var gildedRoseApp = new GildedRose_Solution(inputItems, _itemUpdateFactory);
             
@@ -111,7 +110,25 @@ namespace CodeWars.UnitTest
             gildedRoseApp.UpdateQuality();
 
             // Assert
-            var expected = new Item { Name = dexterityVest, SellIn = 4, Quality = 5 };
+            var expected = new Item { Name = NormalItemName, SellIn = 4, Quality = 0 };
+            inputItems[0].Should().BeEquivalentTo(expected);
+        }
+        
+        [Fact]
+        public void WhenANormalItemGetsUpdated_BothSellInAndQualityDecrease()
+        {
+            // Arrange
+            var inputItems = new List<Item>
+            {
+                new() { Name = NormalItemName, SellIn = 5, Quality = 6 },
+            };
+            var gildedRoseApp = new GildedRose_Solution(inputItems, _itemUpdateFactory);
+            
+            // Act
+            gildedRoseApp.UpdateQuality();
+
+            // Assert
+            var expected = new Item { Name = NormalItemName, SellIn = 4, Quality = 5 };
             inputItems[0].Should().BeEquivalentTo(expected);
         }
 
