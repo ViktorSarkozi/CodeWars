@@ -8,15 +8,22 @@ namespace CodeWars.GildedRose.Solution1
     {
         private readonly IEnumerable<IItemUpdateService> _itemUpdateServices;
 
-        public ItemUpdateFactory(IEnumerable<IItemUpdateService> itemUpdateServices)
+        public ItemUpdateFactory()
         {
-            _itemUpdateServices = itemUpdateServices;
+            _itemUpdateServices = new List<IItemUpdateService>
+            {
+                new AgedItemUpdateService(),
+                new BackstageItemUpdateService(),
+                new LegendaryItemUpdateService(),
+                new ConjuredItemUpdateService(),
+                new DefaultItemUpdateService(),
+            };
         }
 
         public IItemUpdateService Create(Item item)
         {
             Guard.Argument(item, nameof(item)).NotNull();
-
+            
             switch (item.Name)
             {
                 case ItemName.AgedBrie:

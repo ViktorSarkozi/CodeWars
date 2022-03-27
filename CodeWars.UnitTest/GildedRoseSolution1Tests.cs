@@ -6,22 +6,14 @@ using Xunit;
 
 namespace CodeWars.UnitTest
 {
-    public class GildedRoseTests
+    public class GildedRoseSolution1Tests
     {
         private const string NormalItemName = "+5 Dexterity Vest";
         private readonly ItemUpdateFactory _itemUpdateFactory;
 
-        public GildedRoseTests()
+        public GildedRoseSolution1Tests()
         {
-            var itemUpdateService = new List<IItemUpdateService>
-            {
-                new AgedItemUpdateService(),
-                new BackstageItemUpdateService(),
-                new LegendaryItemUpdateService(),
-                new ConjuredItemUpdateService(),
-                new DefaultItemUpdateService(),
-            };
-            _itemUpdateFactory = new ItemUpdateFactory(itemUpdateService);
+            _itemUpdateFactory = new ItemUpdateFactory();
         }
 
         [Fact]
